@@ -1,6 +1,8 @@
 """Task Management API main module."""
 
 from src.presentation.api.tasks import router as tasks_router
+
+from app.src.core.config.config import IS_DEVELOPMENT
 from fastapi import FastAPI
 
 app = FastAPI(
@@ -22,4 +24,5 @@ async def root():
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    if IS_DEVELOPMENT:
+        uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
