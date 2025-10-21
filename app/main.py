@@ -1,9 +1,12 @@
 """Task Management API main module."""
 
-from src.presentation.api.tasks import router as tasks_router
-
 from app.src.core.config.config import IS_DEVELOPMENT
+from app.src.infrastructure.database.config import create_db_and_tables
+from app.src.presentation.api.tasks import router as tasks_router
 from fastapi import FastAPI
+
+# Create database tables on startup
+create_db_and_tables()
 
 app = FastAPI(
     title="Task Management API",

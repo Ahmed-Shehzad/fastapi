@@ -5,7 +5,7 @@ from typing import Optional
 
 from sqlmodel import Field, SQLModel  # type: ignore[misc]
 
-from app.src.core.utils import generate_uuid
+from app.src.core.utils import generate_uuid  # pylint: disable=import-error
 
 
 class TaskBase(SQLModel):

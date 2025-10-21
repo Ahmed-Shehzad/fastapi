@@ -2,10 +2,12 @@
 
 from typing import Optional
 
+from pydantic import BaseModel
+
 from app.src.core.mediator.abstractions import IRequest
 
 
-class TaskCreateCommand(IRequest[str]):
+class TaskCreateCommand(BaseModel, IRequest[str]):
     """Command for creating a task."""
 
     title: str
